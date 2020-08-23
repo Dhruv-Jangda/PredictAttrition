@@ -1,0 +1,57 @@
+HYPER_PARAMS: 
+  BATCH_SIZE: 128
+  Z_THRESHOLD: 2.8
+  TRAIN_SPLIT: 0.8
+  LEARNING_RATE: 0.003
+  SEED: 123
+  EPOCHS: 12
+  OPTIMIZER: adam
+  MOMENTUM: 0.85
+  METRIC: mae
+
+STYLE: imperative
+
+PATHS: 
+  RAW:
+    TRAIN: .\\data\\raw\\Train.csv
+    TEST: .\\data\\raw\\Test.csv
+  PROCESSED:
+    TRAIN: .\\data\\processed\\Train.csv
+    TEST: .\\data\\processed\\Test.csv
+  RESULT: .\\data\\result\\result.csv
+  MODEL:
+    PARAMS: .\\data\\model\\model.params
+    ARCHITECTURE: .\\data\\model\\architecture.txt
+  LOGS:
+    APP: .\\data\\logs\\app\\
+    MXBOARD: .\\data\\logs\\tensorboard\\
+
+COLUMNS:
+  ID: Employee_ID,
+  CATEGORICAL: 
+    NUMERIC:
+      - Education_Level
+      - Post_Level
+      - Pay_Scale
+      - Work_Life_balance
+      - Time_since_promotion
+      - Travel_Rate
+      - VAR1
+      - VAR4
+      - VAR5
+      - VAR6
+      - VAR7
+    STRING:
+      - Gender
+      - Relationship_Status
+      - Hometown
+      - Unit
+      - Decision_skill_possess
+      - Compensation_and_Benefits
+  CONTINUOUS:
+    - Age
+    - Time_of_service
+    - growth_rate
+    - VAR2
+    - VAR3
+  TARGET: Attrition_rate
