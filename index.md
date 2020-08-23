@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+## PredictAttrition
 
-You can use the [editor on GitHub](https://github.com/Dhruv-Jangda/PredictAttrition/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+A simple deep learning project pipelined as:
+  * Data loading and preprocessing done in [Dask](https://dask.org/).
+  * Model preparation and training done in [Mxnet](https://mxnet.apache.org/).
+  * Training metric and model layer parameters visualization done in [Tensorboard](https://www.tensorflow.org/tensorboard) via [Mxboard](https://github.com/awslabs/mxboard).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+The project has the following properties:
+  1. **Scalable** - Due to :
+      1. Hyperparameter and other configurations independent from project framework.
+      2. All pipelines i.e. loading data, pre-processing data and model training independent of each other.
+  2. **Ease of tuning** - Most of the hyperparameters are provided in the config.yaml file, thereby making model tuning easy.
+  3. **Multiple modes** - Supports both *Imperative* and *Symbolic* mode of Mxnet modelling and training.
+  
 
-### Markdown
+### Using Project
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Setup python 3.6 environment with the following packages:
+    1. Mxnet - The project supports CPU version as only.
+    2. Dask
+    3. Dask-Dataframe
+    4. Mxboard
+    5. Tensorboard
+2. Clone the repository.
+3. Double click *setup.py* to make supporting directories.
+4. Double click *attrition.py* to run the project.
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Dhruv-Jangda/PredictAttrition/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+### Future releases
+1. Support for Mxnet GPU version.
+2. Support for Distributed Deep Learning. Though the data is handled in a distrbuted fashion as supported by Dask, but due to *symbolic* or *imperative* mode of training, the data has to be accumulated in memory for further processing.
